@@ -1,0 +1,204 @@
+<html>
+<head>
+	<title>RESTandra/ Testing</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+$(document).ready(function() 
+{
+	var numKV = 4;
+$("#doGET").click(function(){
+
+	var q =  document.location.href + $("#ks").val() + "/" + $("#cf").val() + "/" + $("#id").val() + "/" + $("#sc").val() + "/" + $("#cs").val() + "/" + $("#ce").val() + "/" + $("#rt").val();
+
+	$.ajax({
+		url: q,
+		type: "GET",
+		dataType: "html",
+		statusCode: {
+          404:function() { alert("404 - Not Found");},
+          400:function() { alert("HTTP: 400 - Incomplete Query"); },
+          413:function() { alert("413 - 413 Request Entity Too Large"); },
+          500:function() { alert("500 - Internal Server Error"); },
+          202:function() { alert("202"); }
+        },
+		success: function(data)
+		{
+			$('.result').html(data);
+			
+		}
+	});
+	
+});
+
+$("#doPOST").click(function(){
+
+	var q =  document.location.href + $("#ks").val() + "/" + $("#cf").val() + "/" + $("#id").val() + "/" + $("#sc").val() + "/" + $("#cs").val() + "/" + $("#ce").val() + "/" + $("#rt").val();
+	var keyValue = new Array(numKV);
+	var POSTData = "";
+	var cKey = "";
+	var cVal = "";
+	var f = 0;
+	
+	for (var i = 0; i < numKV; i++)
+	{
+		cKey = $("#k" + i).val();
+		cVal = $("#v" + i).val();
+		
+		if(cKey != "")
+		{
+			if(f == 0)
+			{
+				f = 1;
+				POSTData = POSTData + cKey + "=" + cVal;
+			}
+			else
+			{
+				POSTData = POSTData + "&" + cKey + "=" + cVal;
+			}
+		}
+	}
+	
+	$.ajax({
+		url: q,
+		type: "POST",
+		data: POSTData,
+		dataType: "html",
+		statusCode: {
+          404:function() { alert("404"); },
+          400:function() { alert("HTTP: 400 - Incomplete Query"); },
+          201:function() { alert("201"); },
+          202:function() { alert("202"); }
+        },
+		success: function(data)
+		{
+			$('.result').html(data);
+			
+		}
+	});
+	
+});
+
+$("#doPUT").click(function(){
+
+	var q =  document.location.href + $("#ks").val() + "/" + $("#cf").val() + "/" + $("#id").val() + "/" + $("#sc").val() + "/" + $("#cs").val() + "/" + $("#ce").val() + "/" + $("#rt").val();
+	var keyValue = new Array(numKV);
+	var PUTData = "";
+	var cKey = "";
+	var cVal = "";
+	var f = 0;
+	alert("PUT");
+	for (var i = 0; i < numKV; i++)
+	{
+		cKey = $("#pk" + i).val();
+		cVal = $("#pv" + i).val();
+		
+		if(cKey != "")
+		{
+			if(f == 0)
+			{
+				f = 1;
+				PUTData = PUTData + cKey + "=" + cVal;
+			}
+			else
+			{
+				PUTData = PUTData + "&" + cKey + "=" + cVal;
+			}
+		}
+	}
+	
+	$.ajax({
+		url: q,
+		type: "PUT",
+		data: PUTData,
+		dataType: "html",
+		statusCode: {
+          404:function() { alert("404"); },
+          400:function() { alert("HTTP: 400 - Incomplete Query"); },
+          201:function() { alert("201"); },
+          202:function() { alert("202"); }
+        },
+		success: function(data)
+		{
+			$('.result').html(data);
+			
+		}
+	});
+});
+
+$("#doDEL").click(function(){
+
+	var q =  document.location.href + $("#ks").val() + "/" + $("#cf").val() + "/" + $("#id").val() + "/" + $("#sc").val() + "/" + $("#cs").val() + "/" + $("#ce").val() + "/" + $("#rt").val();
+	
+	$.ajax({
+		url: q,
+		type: "DELETE",
+		dataType: "html",
+		statusCode: {
+          404:function() { alert("404"); },
+          400:function() { alert("HTTP: 400 - Incomplete Query"); },
+          201:function() { alert("201"); },
+          202:function() { alert("202"); }
+        },
+		success: function(data)
+		{
+			$('.result').html(data);
+			
+		}
+	});
+});
+
+
+});
+	
+</script>
+
+</head>
+<body>
+	<h1>RESTandra Testing Application</h1>
+	
+	<p>Result: </p>
+	<div class="result" style="Width:auto; height: auto;"> None </div>
+	
+	<div id="ctrls">
+	
+		<table border="1">
+			<tr> <td>Keyspace <span style="color: #f00;">*</span> </td> <td>[Super] Columnfamily<span style="color: #f00;">*</span></td> <td>Row ID</td> <td>Supercolumn</td> <td>Column Start</td> <td>Column End</td> <td>Return Type/Consistency Level</td> </tr>
+			<tr> <td><input type="text" id="ks" /></td> <td><input type="text" id="cf" /></td> <td><input type="text" id="id" /></td> <td><input type="text" id="sc" /></td> <td><input type="text" id="cs" /></td> <td><input type="text" id="ce" /></td> <td><input type="text" id="rt" /></td> </tr>
+		</table>
+		
+		<br />
+		<br />
+		<table border="1">
+			<tr> <td><p align="center" ><input type="button" id="doGET" value="GET" /></p  ></td> <td><p align="center"><input type="button" id="doDEL" value="DELETE" /> </td></tr>
+		
+		<tr><td>
+			
+			<table>
+				<tr> <td colspan="2"><h3>POST vars</h3></td> </tr>
+				<tr> <td> Key: <input type="text" id="k0" />  </td>  <td>Value: <input type="text" id="v0" /> </td></tr>
+				<tr> <td> Key: <input type="text" id="k1" />  </td>  <td>Value: <input type="text" id="v1" /> </td></tr>
+				<tr> <td> Key: <input type="text" id="k2" />  </td>  <td>Value: <input type="text" id="v2" /> </td></tr>
+				<tr> <td> Key: <input type="text" id="k3" />  </td>  <td>Value: <input type="text" id="v3" /> </td></tr>
+			</table>
+			<p align="center"><input type="button" id="doPOST" value="POST" /></p>
+		</td>
+		<td>
+			
+			<table>
+				<tr> <td colspan="2"><h3>PUT vars</h3></td> </tr>
+				<tr> <td> Key: <input type="text" id="pk0" />  </td>  <td>Value: <input type="text" id="pv0" /> </td></tr>
+				<tr> <td> Key: <input type="text" id="pk1" />  </td>  <td>Value: <input type="text" id="pv1" /> </td></tr>
+				<tr> <td> Key: <input type="text" id="pk2" />  </td>  <td>Value: <input type="text" id="pv2" /> </td></tr>
+				<tr> <td> Key: <input type="text" id="pk3" />  </td>  <td>Value: <input type="text" id="pv3" /> </td></tr>
+			</table>
+			<p align="center"><input type="button" id="doPUT" value="PUT" /></p>
+		</td></tr>
+		
+		</table>
+		
+		<form action="http://localhost:25252/aw/acsa/" method="post">
+			<input type="text" name="d" />
+			<input type="submit" />
+		</form>
+</body>
+</html>
