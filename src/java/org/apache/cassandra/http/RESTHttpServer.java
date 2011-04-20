@@ -35,7 +35,7 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-
+import org.apache.commons.lang.StringUtils;
 
 
 public class RESTHttpServer
@@ -73,30 +73,45 @@ class RHandler implements HttpHandler {
       Set<String> keySet = requestHeaders.keySet();
       URI path = exchange.getRequestURI();
 
+
       System.out.println("GET " + path.toString() + " " + cIP.toString());
 
       String urlParts[] = path.toString().split("/");
       String response = "";
+     // System.out.println(urlParts.length);
 
-      //System.out.println(urlParts.length);
       if (urlParts.length == 8)
       {
-	      HTTPCassandra CassInterface = new HTTPCassandra();
 
-	      String res[] = CassInterface.handleGET(urlParts);
+        String[] clrt = StringUtils.split(urlParts[7], ".");
+        if(clrt[1].equalsIgnoreCase("json") || clrt[1].equalsIgnoreCase("xml") || clrt[1].equalsIgnoreCase("plain"))
+        {
+            HTTPCassandra CassInterface = new HTTPCassandra();
 
-	      if(res[0].equals("200"))
-	      {
-	    	  response = res[1];
-	    	  responseHeaders.set("Content-Type", res[2]);
-		      exchange.sendResponseHeaders(200, response.length());
-	      }
-	      else
-	      {
-	    	  responseHeaders.set("Content-Type", "text/html");
-		      response = "<h1>" + res[1] + "</h1>";
-		      exchange.sendResponseHeaders(Integer.parseInt(res[0]), response.length());
-	      }
+            String res[] = CassInterface.handleGET(urlParts);
+
+            if(res[0].equals("200"))
+            {
+              response = res[1];
+              responseHeaders.set("Content-Type", res[2]);
+              exchange.sendResponseHeaders(200, response.length());
+            }
+            else
+            {
+              responseHeaders.set("Content-Type", "text/html");
+              response = "<h1>" + res[1] + "</h1>";
+              exchange.sendResponseHeaders(Integer.parseInt(res[0]), response.length());
+            }
+        }
+        else
+        {
+            responseHeaders.set("Content-Type", "text/html");
+            response = "<h1>Unsupported Media Type</h1>";
+            exchange.sendResponseHeaders(415, response.length());
+        }
+
+
+
       }
       else if(urlParts.length == 0)
       {
@@ -105,7 +120,22 @@ class RHandler implements HttpHandler {
 			  String str, page ="";
 			  try
 			  {
-				    BufferedReader in = new BufferedReader(new FileReader("html/test.htm"));
+                  Process p = Runtime.getRuntime().exec("pwd");
+                  String s = null;
+                  BufferedReader stdInput = new BufferedReader(new
+                       InputStreamReader(p.getInputStream()));
+
+                  BufferedReader stdError = new BufferedReader(new
+                       InputStreamReader(p.getErrorStream()));
+
+                  // read the output from the command
+                  while ((s = stdInput.readLine()) != null)
+                  {
+                      System.out.println(s);
+                  }
+
+
+				    BufferedReader in = new BufferedReader(new FileReader("../html/test.htm"));
 				    while ((str = in.readLine()) != null)
 				    {
 				        page = page +str;
@@ -160,7 +190,6 @@ class RHandler implements HttpHandler {
 
         if(reqBody != null)
         {
-
         	if (urlParts.length == 8)
             {
 
@@ -198,12 +227,13 @@ class RHandler implements HttpHandler {
         	System.out.println("Empty POST request");
 
         	responseHeaders.set("Content-Type", "text/html");
-            String testResponse = "<H1>Empty POST Request</H1> ";
+            response = "<H1>Empty POST Request</H1> ";
 
             exchange.sendResponseHeaders(400, 0);
-            responseBody.write(testResponse.getBytes());
+
         }
 
+        responseBody.write(response.getBytes());
         responseBody.close();
 
 
@@ -218,42 +248,85 @@ class RHandler implements HttpHandler {
         BufferedReader in=null;
         in = new BufferedReader(new InputStreamReader(exchange.getRequestBody()));
         String reqBody ="";
+        String response = "";
 
         //Log Request
-        System.out.println("PUT Request from: " + cIP.toString() + " Path: " + path.toString());
-        //Read PUT variables/Request body
+        System.out.println("POST Request from: " + cIP.toString() + " Path: " + path.toString());
+        //Read POST variables/Request body
+
+        String urlParts[] = path.toString().split("/");
+
         reqBody = in.readLine();
+
         if(reqBody != null)
         {
-        	System.out.println(reqBody);
-        	String[] vars = reqBody.split("&");
+        	if (urlParts.length == 8)
+            {
+
+	    		HTTPCassandra CassInterface = new HTTPCassandra();
+                //todo: url decode
+	        	String[] vars = reqBody.toString().split("&");
+	  	      	String res[] = CassInterface.handlePOST(urlParts, vars);
+
+      	      if(res[0].equals("201"))
+      	      {
+      	    	  response = res[1];
+      	    	  responseHeaders.set("Content-Type", "text/html");
+      		      exchange.sendResponseHeaders(201, response.length());
+      	      }
+      	      else
+      	      {
+      	    	  responseHeaders.set("Content-Type", "text/html");
+      		      response = "<h1>" + res[1] + "</h1>";
+      		      exchange.sendResponseHeaders(Integer.parseInt(res[0]), response.length());
+      	      }
+            }
+            else
+            {
+
+				responseHeaders.set("Content-Type", "text/html");
+				String error[] = lengthError(urlParts.length);
+				response = error[1];
+				System.out.println(response + " " + response.length());
+				exchange.sendResponseHeaders(Integer.parseInt(error[0]), response.length());
+      	  	}
 
         }
         else
         {
         	System.out.println("Empty PUT request");
+
+        	responseHeaders.set("Content-Type", "text/html");
+            response = "<H1>Empty PUT Request</H1> ";
+
+            exchange.sendResponseHeaders(400, 0);
+
         }
 
-
-        responseHeaders.set("Content-Type", "text/html");
-        String testResponse = "<H1>PUT</H1>";
-
-        exchange.sendResponseHeaders(200, 0);
-        responseBody.write(testResponse.getBytes());
-
+        responseBody.write(response.getBytes());
         responseBody.close();
     }
     else if(requestMethod.equalsIgnoreCase("DELETE"))
     {
-    	Headers responseHeaders = exchange.getResponseHeaders();
+        Headers responseHeaders = exchange.getResponseHeaders();
         InetSocketAddress cIP = exchange.getRemoteAddress();
         OutputStream responseBody = exchange.getResponseBody();
         Headers requestHeaders = exchange.getRequestHeaders();
         URI path = exchange.getRequestURI();
+        BufferedReader in=null;
+        in = new BufferedReader(new InputStreamReader(exchange.getRequestBody()));
+        String reqBody ="";
+        String response = "";
+    	String urlParts[] = path.toString().split("/");
 
 
         //Log Request
         System.out.println("DELETE Request from: " + cIP.toString() + " Path: " + path.toString());
+
+        HTTPCassandra CassInterface = new HTTPCassandra();
+        String res[] = CassInterface.handleDELETE(urlParts);
+
+        System.out.println(res[1]);
 
         responseHeaders.set("Content-Type", "text/html");
         String testResponse = "<H1>DELETE</H1>";

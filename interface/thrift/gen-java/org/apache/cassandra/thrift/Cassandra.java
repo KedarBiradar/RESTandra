@@ -428,7 +428,8 @@ public class Cassandra {
 
   }
 
-  public static class Client implements TServiceClient, Iface {
+  public static class Client implements TServiceClient, Iface
+  {
     public static class Factory implements TServiceClientFactory<Client> {
       public Factory() {}
       public Client getClient(TProtocol prot) {

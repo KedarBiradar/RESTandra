@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dca5014c-ec4b-4747-9b02-2809528da7ea" name="Default" comment="" />
+    <list default="true" id="dca5014c-ec4b-4747-9b02-2809528da7ea" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/Cassandra.java" afterPath="$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/Cassandra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CassandraR.iml" afterPath="$PROJECT_DIR$/src/CassandraR.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/org/apache/cassandra/http/HTTPCassandra.java" afterPath="$PROJECT_DIR$/src/java/org/apache/cassandra/http/HTTPCassandra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/org/apache/cassandra/http/RESTHttpServer.java" afterPath="$PROJECT_DIR$/src/java/org/apache/cassandra/http/RESTHttpServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java" afterPath="$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java" />
+    </list>
     <ignored path="cassandraR.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,10 +67,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CassandraDaemon.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CassandraDaemon.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="47" selection-start="2773" selection-end="2773" vertical-scroll-proportion="0.0">
+            <state line="125" column="52" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.969697">
               <folding />
             </state>
           </provider>
@@ -71,34 +79,25 @@
       <file leaf-file-name="RESTHttpServer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/RESTHttpServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="34" selection-start="4958" selection-end="4958" vertical-scroll-proportion="0.0">
+            <state line="130" column="53" selection-start="3995" selection-end="3995" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTTPCassandra.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HTTPCassandra.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/HTTPCassandra.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="109" selection-start="11942" selection-end="11942" vertical-scroll-proportion="0.25872442">
+            <state line="394" column="86" selection-start="13849" selection-end="13849" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SliceRange.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/SliceRange.java">
+      <file leaf-file-name="ConsistencyLevel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/ConsistencyLevel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="13" selection-start="3006" selection-end="3006" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestClass.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/TestClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="74" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.0">
+            <state line="53" column="113" selection-start="3092" selection-end="3092" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,8 +118,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/java/org/apache/cassandra/http/HttpServer.java" />
-        <option value="$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java" />
         <option value="$PROJECT_DIR$/src/java/org/apache/cassandra/http/TestClass.java" />
+        <option value="$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java" />
+        <option value="$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/Cassandra.java" />
         <option value="$PROJECT_DIR$/src/java/org/apache/cassandra/http/RESTHttpServer.java" />
         <option value="$PROJECT_DIR$/src/java/org/apache/cassandra/http/HTTPCassandra.java" />
       </list>
@@ -162,8 +162,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -174,6 +172,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,22 +192,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cassandraR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CassandraR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cassandraR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CassandraR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen-java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="cassandrar" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.Unnamed">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -353,26 +384,46 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="24" width="1690" height="1003" extended-state="6" />
+    <frame x="0" y="24" width="1680" height="998" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24938725" sideWeight="0.8659674" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23161764" sideWeight="0.114219114" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32965687" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1875" sideWeight="0.8484849" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24908201" sideWeight="0.8146853" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15151516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15592028" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983682" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19519705" sideWeight="0.124267295" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32965687" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19458129" sideWeight="0.84407973" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14771394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18531469" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -423,31 +474,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="669" column="67" selection-start="27344" selection-end="27344" vertical-scroll-proportion="3.5783865" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/auth/AllowAllAuthenticator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="13" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.47761193" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/service/AbstractCassandraDaemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="22" selection-start="2195" selection-end="2195" vertical-scroll-proportion="-1.3100559" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/db/Row.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/db/SliceFromReadCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="31" selection-start="1646" selection-end="1666" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/service/StorageProxy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="612" column="171" selection-start="28626" selection-end="28626" vertical-scroll-proportion="-3.7790368" />
@@ -458,24 +484,29 @@
         <state line="57" column="94" selection-start="2235" selection-end="2235" vertical-scroll-proportion="-3.1016693" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/Cassandra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="22" selection-start="5628" selection-end="5634" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/tools/SSTableExport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="411" column="53" selection-start="13917" selection-end="13921" vertical-scroll-proportion="0.28039703" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java">
+    <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="47" selection-start="2773" selection-end="2773" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.9925" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/RESTHttpServer.java">
+    <entry file="file://$PROJECT_DIR$/cassandrar.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="34" selection-start="4958" selection-end="4958" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/TimedOutException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="13" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-0.027104137" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="76" selection-start="4243" selection-end="4243" vertical-scroll-proportion="0.6578073" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/SliceRange.java">
@@ -483,14 +514,48 @@
         <state line="66" column="13" selection-start="3006" selection-end="3006" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/Deletion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="13" selection-start="1573" selection-end="1573" vertical-scroll-proportion="0.3329298" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/ColumnPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="71" selection-start="4317" selection-end="4317" vertical-scroll-proportion="0.8439451" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/TestClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="74" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.0" />
+        <state line="75" column="74" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.016949153" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/Cassandra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="939" column="73" selection-start="39889" selection-end="39889" vertical-scroll-proportion="-21.48" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/thrift/gen-java/org/apache/cassandra/thrift/ConsistencyLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="113" selection-start="3092" selection-end="3092" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/RESTHttpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="53" selection-start="3995" selection-end="3995" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/http/HTTPCassandra.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="109" selection-start="11942" selection-end="11942" vertical-scroll-proportion="0.25872442">
+        <state line="394" column="86" selection-start="13849" selection-end="13849" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/org/apache/cassandra/thrift/CassandraDaemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="52" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.969697">
           <folding />
         </state>
       </provider>
@@ -501,10 +566,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>CassandraR:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

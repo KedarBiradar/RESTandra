@@ -5,19 +5,23 @@
 <script>
 $(document).ready(function() 
 {
+
 	var numKV = 4;
 $("#doGET").click(function(){
 
 	var q =  document.location.href + $("#ks").val() + "/" + $("#cf").val() + "/" + $("#id").val() + "/" + $("#sc").val() + "/" + $("#cs").val() + "/" + $("#ce").val() + "/" + $("#rt").val();
-
+	$("#url").html(q);
+	$("#url").attr("href", q);
+	
 	$.ajax({
 		url: q,
 		type: "GET",
 		dataType: "html",
 		statusCode: {
           404:function() { alert("404 - Not Found");},
-          400:function() { alert("HTTP: 400 - Incomplete Query"); },
-          413:function() { alert("413 - 413 Request Entity Too Large"); },
+          400:function() { alert("HTTP: 400 - Bad Request"); },
+          413:function(data) { alert("413 - 413 Request Entity Too Large"); },
+	  415:function(data) { alert("415 - Unsupported media type"); $('.result').html(data); },
           500:function() { alert("500 - Internal Server Error"); },
           202:function() { alert("202"); }
         },
@@ -49,11 +53,11 @@ $("#doPOST").click(function(){
 			if(f == 0)
 			{
 				f = 1;
-				POSTData = POSTData + cKey + "=" + cVal;
+				POSTData = POSTData + encodeURIComponent(cKey) + "=" + encodeURIComponent(cVal);
 			}
 			else
 			{
-				POSTData = POSTData + "&" + cKey + "=" + cVal;
+				POSTData = POSTData + "&" + encodeURIComponent(cKey) + "=" + encodeURIComponent(cVal);
 			}
 		}
 	}
@@ -64,10 +68,12 @@ $("#doPOST").click(function(){
 		data: POSTData,
 		dataType: "html",
 		statusCode: {
-          404:function() { alert("404"); },
-          400:function() { alert("HTTP: 400 - Incomplete Query"); },
-          201:function() { alert("201"); },
-          202:function() { alert("202"); }
+          404:function() { alert("404 - Not Found");},
+          400:function() { alert("HTTP: 400 - Bad Request"); },
+          413:function(data) { alert("413 - 413 Request Entity Too Large"); },
+	  415:function(data) { alert("415 - Unsupported media type"); $('.result').html(data); },
+          500:function() { alert("500 - Internal Server Error"); },
+          200:function() { alert("200"); }
         },
 		success: function(data)
 		{
@@ -148,6 +154,92 @@ $("#doDEL").click(function(){
 });
 
 
+
+/*var st = setInterval(function() {repInsert();}, 10000);*/
+
+function getRandChar()
+{
+	var generator = Math.random()*(25);
+	generator = Math.floor(65+generator);
+	return String.fromCharCode(generator);
+}
+
+
+function repInsert()
+{
+	var keyLen = Math.floor(Math.random()*16);
+	keyLen += 4;
+	var key ="";
+	
+	for(var i = 0; i < keyLen; i++)
+	{
+		key += getRandChar();
+	}
+	var q =  document.location.href + "Twissandra/User/"+key+"////ONE";
+	
+	var numKVr = Math.floor(Math.random()*10);
+	numKVr ++;
+
+	var POSTData = "";
+	var cKey = "";
+	var cVal = "";
+	var f = 0;
+	
+	for (var ii = 0; ii < numKVr; ii++)
+	{
+		cKey = "";
+		cKeyLen = Math.floor(Math.random()*11);
+		cKeyLen+=3;
+		for(var ci = 0; ci < cKeyLen; ci++)
+		{	
+			cKey += getRandChar();
+		}
+		cVal = "";
+		cValLen = Math.floor(Math.random()*11); 
+		cValLen++;
+		for(var i = 0; i < cValLen; i++)
+		{
+			cVal += getRandChar();
+		}
+		
+		if(cKey != "")
+		{
+			if(f == 0)
+			{
+				f = 1;
+				POSTData = POSTData + encodeURIComponent(cKey) + "=" + encodeURIComponent(cVal);
+			}
+			else
+			{
+				POSTData = POSTData + "&" + encodeURIComponent(cKey) + "=" + encodeURIComponent(cVal);
+			}
+		}
+	}
+	
+	$.ajax({
+		url: q,
+		type: "POST",
+		data: POSTData,
+		dataType: "html",
+		statusCode: {
+          404:function() { alert("404 - Not Found");},
+          400:function() { alert("HTTP: 400 - Bad Request"); },
+          413:function(data) { alert("413 - 413 Request Entity Too Large"); },
+	  415:function(data) { alert("415 - Unsupported media type"); $('.result').html(data); },
+          500:function() { alert("500 - Internal Server Error"); },
+          200:function() { alert("200"); }
+        },
+		success: function(data)
+		{
+			$('.result').html(data);
+			$('#keys').append(key + "<br />");
+			
+		}
+	});
+
+}
+
+
 });
 	
 </script>
@@ -157,15 +249,18 @@ $("#doDEL").click(function(){
 	<h1>RESTandra Testing Application</h1>
 	
 	<p>Result: </p>
-	<div class="result" style="Width:auto; height: auto;"> None </div>
-	
+	<!--<div class="result" style="Width:auto; height: auto;"> None </div>-->
+	<textarea class="result" style="Width:800px; height: 150px; border:none;" ></textarea> 
+		
+
 	<div id="ctrls">
 	
 		<table border="1">
 			<tr> <td>Keyspace <span style="color: #f00;">*</span> </td> <td>[Super] Columnfamily<span style="color: #f00;">*</span></td> <td>Row ID</td> <td>Supercolumn</td> <td>Column Start</td> <td>Column End</td> <td>Return Type/Consistency Level</td> </tr>
-			<tr> <td><input type="text" id="ks" /></td> <td><input type="text" id="cf" /></td> <td><input type="text" id="id" /></td> <td><input type="text" id="sc" /></td> <td><input type="text" id="cs" /></td> <td><input type="text" id="ce" /></td> <td><input type="text" id="rt" /></td> </tr>
+			<tr> <td><input type="text" id="ks" value="Twissandra" /></td> <td><input type="text" id="cf" value="User" /></td> <td><input type="text" id="id" /></td> <td><input type="text" id="sc" /></td> <td><input type="text" id="cs" /></td> <td><input type="text" id="ce" /></td> <td><input type="text" id="rt" /></td> </tr>
 		</table>
 		
+<div><a id="url" href="#"> </a> </div>
 		<br />
 		<br />
 		<table border="1">
@@ -200,5 +295,12 @@ $("#doDEL").click(function(){
 			<input type="text" name="d" />
 			<input type="submit" />
 		</form>
+
+<div id="keys"> 
+</div>
+
 </body>
+
+
+
 </html>

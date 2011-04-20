@@ -79,7 +79,6 @@ public class CassandraDaemon extends org.apache.cassandra.service.AbstractCassan
 
     public static void main(String[] args)
     {
-        //System.out.println("It Lives!");
         new CassandraDaemon().activate();
         new RESTHttpServer().StartHTTPServer();
 
